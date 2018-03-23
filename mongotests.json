@@ -1,0 +1,10 @@
+[{
+   "id": 1,
+   "name": "Adiniz",
+   "lastname": "Soyadiniz",
+   "mail": "kullanicimaili@mail.com",
+   "dateofreg": "05-01-2017",
+   "tel": 5416879395,
+   "gender": null,
+   "country": "TR"
+ }]

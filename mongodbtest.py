@@ -4,7 +4,7 @@ def dataconnect():
     try:
         client = MongoClient("mongodb://username:password@ds121349.mlab.com:21349/ertugrultosundb")
         db = client['ertugrultosundb']
-        db.authenticate("username", "password")
+        db.authenticate("username","password")
         print("Baglanti Basarili!")
         return db.Users
     except:
@@ -50,18 +50,12 @@ class User(object):
         datab = dataconnect()
         datab.remove({"mail": mail});
 
-    # Var olan kullanıcıyı update eder.
-    def user_update(self,mail):
+    # Var olan kullanıcının istenilen ogesini update eder.
+    def user_update(self,mail,var1,var2):
         datab = dataconnect()
-        datab.update({'mail':mail},{"$set":{"name": self.name,
-               "lastname": self.surname,
-               "mail": self.mail,
-               "dateofreg": self.year,
-               "tel": self.tel,
-               "country": self.origin}})
+        datab.update({'mail':mail},{"$set":{var1:var2}})
 
 tesla = User("Ahmet","Tosun","ahmet@ail.com","123456789","2018","TR")
 tesla.user_insert()
-tesla = User("Ahmet","Tosun","ahmet@ail.com","12345678910","2018","TR")
-tesla.user_update("ahmettsn66@gmail.com")
-#tesla.user_delete("ahmettsn66@gmail.com")
+tesla.user_update("ahmet@ail.com","tel","123")
+#tesla.user_delete("ahmet@ail.com")
